@@ -1,0 +1,82 @@
+package domashni;
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class puteshestvie {
+
+	public static void main(String[] args) {
+		Scanner inp = new Scanner (System.in);
+		
+		double budget;
+		String sezon;
+
+		do 
+		{
+			System.out.println("Vuvedete budget mejdu 10 i 5000 leva: ");
+			budget = inp.nextDouble();
+			
+		}
+		while (budget <10.0 || budget > 5000.0);
+		
+		boolean match = false;
+		do
+		{
+			System.out.println("Vuvedete sezon \"summer\" ili \"winter\" : ");
+			sezon = inp.next();
+			
+			if (sezon.equalsIgnoreCase("summer") || sezon.equalsIgnoreCase("winter")) {match = true;}
+		}
+		while (match == false);
+		
+		String mqsto;
+		DecimalFormat decimalformat = new DecimalFormat();
+		decimalformat.setMaximumFractionDigits(2); 
+		
+		double poharchenasuma;
+		if (sezon.equals("summer")) 
+		{
+			mqsto = "camp";
+		}
+		else mqsto = "hotel";
+		
+		if (budget <= 100) 
+		{
+			System.out.println("Somewhere in Bulgaria.");
+			
+			if (mqsto == "camp") 
+			{
+				poharchenasuma = (budget*3)/10;
+				System.out.println("V " + mqsto + " - " + decimalformat.format(poharchenasuma));
+			}
+			else 
+			{
+				poharchenasuma = (budget*7)/10;
+				System.out.println("V " + mqsto + " - " + decimalformat.format(poharchenasuma));
+			}
+			
+		}
+		
+		else if (budget<=1000) 
+		{
+			System.out.println("Somewhere in the Balkans.");
+			if (mqsto == "camp") 
+			{
+				poharchenasuma = (budget*4)/10;
+				System.out.println("V " + mqsto + " - " + decimalformat.format(poharchenasuma));
+			}
+			else 
+			{
+				poharchenasuma = (budget*8)/10;
+				System.out.println("V " + mqsto + " - " + decimalformat.format(poharchenasuma));
+			}
+		}
+		
+		else 
+		{
+			System.out.println("Somewhere in Europe.");
+			poharchenasuma = budget - (budget*9)/10;
+			System.out.println("V " + mqsto + " - " + decimalformat.format(poharchenasuma));
+		}
+	}
+
+}
