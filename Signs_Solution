@@ -1,0 +1,56 @@
+package methodi;
+import java.util.Scanner;
+public class zad3 {
+
+	public static int brTabeli (int n) 
+	{
+		int broqch = 0;
+		int brTabela = 1; 
+		for (int i=1; i <= n ; i++) 
+		{	
+			int p = i;
+			
+			do
+			{
+				if (p%10 == 2) 
+				{
+					 String formattedLeadingZeros = String.format("%05d", i);
+					 System.out.println(brTabela +": "+ formattedLeadingZeros);
+					 broqch++;
+           
+					break;
+				}
+				
+				p = p/10;
+				brTabela++;
+			}
+			
+			while (p/10>0);
+			
+			
+		}
+		return (broqch);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		Scanner inp = new Scanner (System.in);
+		
+		int n;
+		
+		do 
+			
+		{
+			System.out.println("Please enter a five digit number: ");
+			n = inp.nextInt();
+		}
+		
+		while (n<10000);
+		
+		
+		System.out.println("Number of signs changed: " + brTabeli(n));
+
+	}
+
+}
