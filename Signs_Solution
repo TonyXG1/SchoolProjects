@@ -46,7 +46,7 @@ public class zad3 {
 			n = inp.nextInt();
 		}
 		
-		while (n<10000);
+		while (n<10000 || n>99999);
 		
 		
 		System.out.println("Number of signs changed: " + brTabeli(n));
