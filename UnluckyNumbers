@@ -1,0 +1,90 @@
+package methodi;
+import java.util.Scanner;
+public class neshtastnichisla {
+	
+	
+	public static void UnluckyNumbers (int numbers) 
+	{
+		int br = 0;
+		for (int i = 0 ; i<=numbers;i++) 
+		{	
+	
+			int p = i;
+			
+			do 
+			{
+				if (p%10==4) 
+				{
+					br+=1;
+					System.out.println(i);
+					break;
+				}
+				
+				else 
+				{
+					if (p%10==3) 
+					{
+						int q = p;
+						do 
+						{
+							if (q%10 == 1) 
+							{
+								br+=1;
+								System.out.println(i);
+								break;
+							}
+							
+							q=q/10;
+						}
+						while (q>0);
+					}
+					
+				}
+				
+				p=p/10;
+			}
+			
+			while (p>0);
+			
+			
+		}
+		
+		System.out.println("Number: " + br);
+		
+	}
+	
+	
+	
+	public static void main(String[] args) {
+		Scanner inp = new Scanner (System.in);		
+													
+	int option1;
+	int option2 = 100000;
+		
+		
+		int input;
+		do 
+		{	
+			System.out.println("Choose an output method: \nType '1' for your input.\nType '2' for 100.000:");
+			input = inp.nextInt();
+		if (input == 1) 
+		{	
+			System.out.println("Enter your number:");
+			option1 = inp.nextInt();
+			UnluckyNumbers(option1);
+			
+		}
+		
+		else if (input == 2) 
+		{
+			UnluckyNumbers(option2);
+			
+		}
+		
+		else System.out.println("Wrong input. Try Again!");
+		}
+		while (input!=1 && input!=2);
+		
+	}
+
+}
